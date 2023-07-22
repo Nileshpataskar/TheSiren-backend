@@ -1,8 +1,13 @@
 /* CSS styles for nthe components */
+body {
+  background-color: #f5eeee;
+}
 .article-page {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-right: 80px;
+  margin-left: 80px;
 }
 .category-title {
   font-size: 42px;
@@ -15,6 +20,39 @@
   margin-top: 20px;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
+.flexing {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  max-height: 2000px;
+}
+
+.flexing::-webkit-scrollbar {
+  height: 8px;
+}
+
+.flexing::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+.flexing::-webkit-scrollbar-track {
+  background-color: #f2f2f2;
+  border-radius: 4px;
+}
+
+.flexing > * {
+  flex: 0 0 auto;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.flexing > *:last-child {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
 .rightarticleContainer {
   margin-top: 20px;
 
@@ -25,6 +63,7 @@
   display: flex;
   justify-content: flex-start;
   width: 44%;
+  gap: 40px;
 }
 .profile {
   height: 120px;
@@ -33,6 +72,7 @@
 .article-card {
   border: 1px solid rgb(156, 156, 153);
   padding: 10px;
+  background-color: #414040;
   display: flex;
   gap: 10px;
 }
@@ -112,7 +152,7 @@
   display: flex;
   justify-content: space-between;
   padding-left: 80px;
-  background-color: rgb(255, 255, 255);
+  background-color: #f5eeee;
   box-shadow: 3px 3px 3px 3px #d8d5d5;
   padding-right: 80px;
 }
@@ -122,27 +162,65 @@
   width: 600px;
   margin-top: 50px;
   border: 3px ridge #d8d5d5;
+  background-color: #f2f2f2;
   padding: 15px;
-  box-shadow: 5px 5px 5px 5px #c5ff8e3a;
 }
 .backbutton {
   background: transparent;
   border: 0px;
   font-size: 24px;
 }
+.flexcolumn {
+  display: flex;
+  flex-direction: column;
+}
+.social {
+  display: flex;
+  gap: 8px;
+}
 .readmorelink {
   text-decoration: none;
   color: blue;
-  font-weight: bolder;
-  margin-top: 7%;
+  font-weight: 100;
+  margin-top: 10px;
 }
-.loadmorebutton {
+/* .loadmorebutton {
   height: 50px;
   font-size: 24px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-style: italic;
   width: 100%;
+} */
+
+.load-more-button {
+  display: block;
+  margin: 0 auto;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #0f0f0f;
+  background-color: #f5eeee;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 80%;
+  transition: background-color 0.3s ease;
 }
+.backgroundForButton {
+  background-color: black;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.load-more-button:hover {
+  background-color: #b2afbe;
+}
+
+.load-more-button:active {
+  background-color: #000000;
+}
+
 .homeMain {
   display: flex;
   width: 100%;
@@ -156,7 +234,7 @@
 hr {
   margin-left: 30px;
   margin-right: 30px;
-  border: 3px solid rgb(119, 117, 117);
+  border: 3px solid rgb(53, 17, 17);
 }
 .sirenLink {
   text-decoration: none;
@@ -183,61 +261,102 @@ hr {
     border: 1px solid rgb(156, 156, 153);
     padding: 10px;
     display: flex;
-    width: 340px;
+    width: 307px;
     align-items: center;
     flex-direction: column;
     gap: 10px;
+  }
+
+  .loadmorebutton {
+    height: 50px;
+    font-size: 24px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    width: 362px;
+  }
+  .category-title {
+    font-size: 24px;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    text-transform: capitalize;
   }
   .article-page {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 335px;
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+  .articleDetails {
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    border: 3px ridge #d8d5d5;
+    padding: 15px;
+    margin-top: 50px;
+    box-shadow: 1px 5px 5px 5px #bdc0ba3a;
+  }
+  .article-title {
+    font-weight: 400;
+  }
+  .imagep {
+    width: 220px;
+  }
+
+  .profile {
+    height: 80px;
+    width: 80px;
+  }
+  .title {
+    font-size: 20px;
+  }
+  .ptext {
+    display: flex;
+    justify-content: flex-start;
+    width: 88%;
+    gap: 40px;
+  }
+
+  .leftLogo {
+    display: flex;
+    width: 210px;
+    justify-content: space-between;
+  background-color: #f5eeee;
+
+    box-shadow: 3px 3px 3px 3px #d8d5d5;
+    padding-right: 80px;
+  }
+
+  .backbutton {
+    background: transparent;
+    border: 0px;
+    font-size: 24px;
+    margin-left: 80px;
   }
   
-.loadmorebutton {
-  height: 50px;
-  font-size: 24px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  width: 362px;
-}
-.category-title {
-  font-size: 24px;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  text-transform: capitalize;
-}
-.articleDetails {
+.flexing {
   display: flex;
   flex-direction: column;
-  width: 280px;
-  border: 3px ridge #d8d5d5;
-  padding: 15px;
-  margin-top: 50px;
-  box-shadow: 1px 5px 5px 5px #bdc0ba3a;
-}
-.imagep{width: 220px;}
-
-.profile {
-  height: 80px;
-  width: 80px;
-}
-.title{
-  font-size: 20px;
+  width: 363px;
+  gap: 5px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  max-height: 2000px;
 }
 
-.leftLogo {
+
+.backgroundForButton {
+  background-color: black;
+  height: 100px;
   display: flex;
-  width: 210px;
-  justify-content: space-between;
-  background-color: rgb(255, 255, 255);
-  box-shadow: 3px 3px 3px 3px #d8d5d5;
-  padding-right: 80px;
+  width: 340px;
+  margin-left: 10px;
+  align-items: center;
+  justify-content: center;
 }
-
-.backbutton {
-  background: transparent;
-  border: 0px;
-  font-size: 24px;
-  margin-left: 80px;
+.rightarticleContainer {
+  margin-top: 20px;
+  margin-left: 13px;
+  width: 42%;
 }
 }

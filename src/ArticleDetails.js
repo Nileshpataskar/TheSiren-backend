@@ -4,6 +4,7 @@ import { ArticleContext } from "./ArticleContext";
 import he from "he";
 import image from "./images.png";
 import Logo from "./Logo";
+import { Facebook, Twitter, Youtube } from "lucide-react";
 
 function ArticleDetails() {
   const { id } = useParams();
@@ -26,18 +27,26 @@ function ArticleDetails() {
         <Logo />
         <button className="backbutton" onClick={goBack}>
           BACK
+
         </button>
       </div>
       {article ? (
         <div className="grisha">
           <div className="ptext">
             <img src={image} alt="alt" className="profile" />
+           <div className="flexcolumn"> 
             <h3> Nilesh Pataskar</h3>
+            <div className="social">
+              <Facebook color="#5d83c0" strokeWidth={1.5} />
+              <Youtube color="#c32830" strokeWidth={1.5} />
+              <Twitter color="#5d83c0" strokeWidth={1.5} />
+            </div>
+            </div>
           </div>
 
           <div className="articleDetails">
             <h2 className="title">{article.title}</h2>
-            <img src={article.urlToImage}  className="imagep" alt="alt" />
+            <img src={article.urlToImage} className="imagep" alt="alt" />
             <p>{article.description}</p>
             <p>{he.decode(article.content)}</p>
             <h5>Author: {article.author}</h5>
@@ -52,6 +61,7 @@ function ArticleDetails() {
       ) : (
         <p>Article not found.</p>
       )}
+
     </div>
   );
 }

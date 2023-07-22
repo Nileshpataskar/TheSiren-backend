@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Logo from './Logo';
+// import Logo from './Logo';
 import './topart.css'
 
 
 function TopPart() {
   return (
     <div className="topPart">
-      <Logo/>
+      {/* <Logo/> */}
       <div className="navBar">
-      <Link to="/" className="navLink">
+      <Link to="/home" className="navLink">
           Home
         </Link>
         <Link to="/category/bollywood" className="navLink">
