@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { ArticleContext } from "./ArticleContext";
 import "./App.css";
 import TopPart from "./TopPart";
+import Navbar from "./Navbar";
 
 function ArticlePage() {
   const { category } = useParams();
@@ -47,9 +48,34 @@ function ArticlePage() {
   const dataArray = Array.isArray(data) ? data : [];
   const data2Array = Array.isArray(data2) ? data2 : [];
 
+
+  
+  const [deviceType, setDeviceType] = useState("desktop");
+
+  useEffect(() => {
+    const checkDeviceType = () => {
+      if (window.innerWidth < 768) {
+        setDeviceType("mobile");
+      } else if (window.innerWidth < 992) {
+        setDeviceType("tablet");
+      } else {
+        setDeviceType("desktop");
+      }
+    };
+
+    checkDeviceType();
+    window.addEventListener("resize", checkDeviceType);
+
+    return () => {
+      window.removeEventListener("resize", checkDeviceType);
+    };
+  }, []);
   return (
     <div>
-      <TopPart />
+       {deviceType === "mobile" && <Navbar />}
+      {deviceType !== "mobile" && <TopPart />}
+
+
       <div className="article-page">
         <div className="leftarticleContainer">
           <h2 className="category-title">{category}</h2>
@@ -103,10 +129,11 @@ function ArticlePage() {
 
                     <p className="article-description">{article.description}</p>
                     <p className="article-publishedAt">{article.author}</p>
+                 
                   </div>
                 </div>
               </Link>
-            ))}
+           ))}
         </div>
       </div>
     </div>

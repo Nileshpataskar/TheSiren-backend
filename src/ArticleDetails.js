@@ -4,6 +4,7 @@ import { ArticleContext } from "./ArticleContext";
 import he from "he";
 import image from "./images.png";
 import Logo from "./Logo";
+import "./articleDetails.css"
 import { Facebook, Twitter, Youtube } from "lucide-react";
 
 function ArticleDetails() {

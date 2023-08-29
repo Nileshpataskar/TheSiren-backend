@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./HomePage.css";
 import TopPart from "./TopPart";
 import { Link } from "react-router-dom";
+import Navbar from "./Navbar";
 
 function HomePage() {
   const [data3, setData3] = useState([]);
@@ -10,7 +11,6 @@ function HomePage() {
 
   const [visibleArticles, setVisibleArticles] = useState(4);
   const [visibleArticlesHor, setVisibleArticlesHor] = useState(15);
-
 
   useEffect(() => {
     const fetchData3 = async () => {
@@ -58,27 +58,49 @@ function HomePage() {
   };
 
   const loadMoreArticlesHorizontal = () => {
-    setVisibleArticlesHor((prevVisibleArticleshor) => prevVisibleArticleshor + 3);
+    setVisibleArticlesHor(
+      (prevVisibleArticleshor) => prevVisibleArticleshor + 3
+    );
   };
+
+  //mobile
+  const [deviceType, setDeviceType] = useState("desktop");
+
+  useEffect(() => {
+    const checkDeviceType = () => {
+      if (window.innerWidth < 768) {
+        setDeviceType("mobile");
+      } else if (window.innerWidth < 992) {
+        setDeviceType("tablet");
+      } else {
+        setDeviceType("desktop");
+      }
+    };
+
+    checkDeviceType();
+    window.addEventListener("resize", checkDeviceType);
+
+    return () => {
+      window.removeEventListener("resize", checkDeviceType);
+    };
+  }, []);
 
   return (
     <div>
-      <TopPart />
+      {deviceType === "mobile" && <Navbar />}
+      {deviceType !== "mobile" && <TopPart />}
 
       <div className="Mai">
         <div className="MainImage">
           {data5 &&
-            data5.slice(14,15).map((article, index) => (
+            data5.slice(14, 15).map((article, index) => (
               <div className="home--card" key={index}>
-            
-            <Link to={`/article/${article.title}`} className="readmorelink">
-            
-                <img
-                  className="thumbnail1"
-                  src={article.urlToImage}
-            
-                  alt="alt"
-                />
+                <Link to={`/article/${article.title}`} className="readmorelink">
+                  <img
+                    className="thumbnail1"
+                    src={article.urlToImage}
+                    alt="alt"
+                  />
                 </Link>
               </div>
             ))}
@@ -86,30 +108,32 @@ function HomePage() {
           <div className="secondImage">
             {" "}
             {data5 &&
-              data5.slice(10,11).map((article, index) => (
+              data5.slice(10, 11).map((article, index) => (
                 <div className="home--card" key={index}>
-                <Link to={`/article/${article.title}`} className="readmorelink">
-                 
-                  <img
-                    className="thumbnail2"
-                    src={article.urlToImage}
-                   
-                    alt="alt"
-                  />
+                  <Link
+                    to={`/article/${article.title}`}
+                    className="readmorelink"
+                  >
+                    <img
+                      className="thumbnail2"
+                      src={article.urlToImage}
+                      alt="alt"
+                    />
                   </Link>
                 </div>
               ))}
             {data5 &&
               data5.slice(2, 3).map((article, index) => (
                 <div className="home--card" key={index}>
-                <Link to={`/article/${article.title}`} className="readmorelink">
-
-                  <img
-                    className="thumbnail3"
-                    src={article.urlToImage}
-              
-                    alt="alt"
-                  />
+                  <Link
+                    to={`/article/${article.title}`}
+                    className="readmorelink"
+                  >
+                    <img
+                      className="thumbnail3"
+                      src={article.urlToImage}
+                      alt="alt"
+                    />
                   </Link>
                 </div>
               ))}
@@ -131,15 +155,13 @@ function HomePage() {
                   height={150}
                   alt="alt"
                 />
-            <Link to={`/article/${article.title}`} className="readmorelink">
-            
-                <div className="article-content">
-                  <h3 className="article-title">{article.title}</h3>
-                  <p className="article-description">{article.description}</p>
-                  <p className="article-publishedAt">{article.publishedAt}</p>
-                </div>
-            
-            </Link>
+                <Link to={`/article/${article.title}`} className="readmorelink">
+                  <div className="article-content">
+                    <h3 className="article-title">{article.title}</h3>
+                    <p className="article-description">{article.description}</p>
+                    <p className="article-publishedAt">{article.publishedAt}</p>
+                  </div>
+                </Link>
               </div>
             ))}
         </div>
@@ -153,40 +175,39 @@ function HomePage() {
 
       {/* Second PArt */}
 
-
       <h1>Latest Articles</h1>
-<div className="midpart">
+      <div className="midpart">
+        <div className="homelander2">
+          <div className="scrollable-row2">
+            {data4 &&
+              data4.slice(11, visibleArticlesHor).map((article, index) => (
+                <Link to={`/article/${article.title}`} className="readmorelink">
+                  <div className="home-article-card2" key={index}>
+                    <img
+                      className="article-image"
+                      src={article.urlToImage}
+                      alt="alt"
+                    />
 
-      <div className="homelander2">
-        <div className="scrollable-row2">
-          {data4 &&
-            data4.slice(11, visibleArticlesHor).map((article, index) => (
-            
-            <Link to={`/article/${article.title}`} className="readmorelink">
+                    <div className="articzle-content2">
+                      <h3 className="article-title">{article.title}</h3>
+                      <p className="article-description">
+                        {article.description}
+                      </p>
+                      <p className="article-publishedAt">
+                        {article.publishedAt}
+                      </p>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+          </div>
+        </div>
 
-            <div className="home-article-card2" key={index}>
-                <img
-                  className="article-image"
-                  src={article.urlToImage}
-                 
-                  alt="alt"
-                />
-                
-                <div className="articzle-content2">
-                  <h3 className="article-title">{article.title}</h3>
-                  <p className="article-description">{article.description}</p>
-                  <p className="article-publishedAt">{article.publishedAt}</p>
-                </div>
-
-
-              </div>
-              </Link>
-            ))}
+        <div className="advertisement">
+          <h1>Advertisement</h1>
         </div>
       </div>
-
-      <div className="advertisement"><h1>Advertisement</h1></div>
-</div>
       {data4.length > visibleArticlesHor && (
         <button className="load" onClick={loadMoreArticlesHorizontal}>
           View More
@@ -197,16 +218,14 @@ function HomePage() {
         <div className="scrollable-row">
           {data4 &&
             data4.slice(0, visibleArticles).map((article, index) => (
-           
               <Link to={`/article/${article.title}`} className="readmorelink">
-           
-           <div className="home-article-card" key={index}>
-                <div className="article-content">
-                  <h3 className="article-title">{article.title}</h3>
-                  <p className="article-description">{article.description}</p>
-                  <p className="article-publishedAt">{article.publishedAt}</p>
+                <div className="home-article-card" key={index}>
+                  <div className="article-content">
+                    <h3 className="article-title">{article.title}</h3>
+                    <p className="article-description">{article.description}</p>
+                    <p className="article-publishedAt">{article.publishedAt}</p>
+                  </div>
                 </div>
-              </div>
               </Link>
             ))}
         </div>

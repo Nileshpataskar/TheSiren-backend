@@ -1,100 +1,68 @@
 body {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
 }
+
+.main {
+  position: relative; /* Set a relative position for the container */
+  width: 100%;
+}
+
 .background {
   background-color: #f5eeee;
-  width: auto;
-  height: 585px;
+  width: 100%;
+  min-height: 100vh; /* Make sure the container spans the full viewport height */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 20px;
+  box-sizing: border-box; /* Include padding in the width calculation */
 }
-.forflex {
-  display: flex;
-}
-.the41 {
-  font-family: "Instrument Serif", serif;
-  font-size: 110px;
-  transform: rotate(270deg);
-  margin-right: -140px;
-  color: #333333;
-}
-.the4 {
-  font-size: 160px;
-}
+
 .siren41 {
   font-family: "Instrument Serif", serif;
-  font-size: 350px;
-  margin-right: -140px;
-
+  font-size: 7rem;
   color: #333333;
+  margin: 0;
 }
+
+.adlib {
+  font-family: "Tektur", cursive;
+  font-size: 24px;
+  color: #666;
+  text-align: center;
+  margin-top: 20px;
+}
+
 .background2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   background-color: black;
-  min-height: 200px;
+  padding: 20px; /* Add some padding for spacing */
+  box-sizing: border-box; /* Include padding in the width calculation */
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.adlib {
-  font-family: "Roboto", sans-serif;
-  font-family: "Tektur", cursive;
-  font-size: 34px;
-  color: rgb(100, 100, 100);
-}
-@media all and (max-width: 540px) {
-  body {
-    margin: 0px;
-    padding: 0px;
-  }
-  .main {
-    width: auto;
-    height: fit-content;
-  }
-  .the4 {
-    font-size: 30px;
-    transform: rotate(270deg);
-  }
-  .background {
-    background-color: #f5eeee;
-    width: auto;
-    max-height: 435px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-  }
-  .forflex {
-    display: flex;
-    width: 200px;
-  }
-  .the41 {
-    font-family: "Instrument Serif", serif;
-    font-size: 30px;
-    color: #333333;
-    visibility: hidden;
-  }
+
+@media (max-width: 480px) {
   .siren41 {
-    font-family: "Instrument Serif", serif;
-    font-size: 80px;
-    font-weight: bold;
-    color: #333333;
+  font-size: 3rem;
   }
 
-  .background2 {
-    background-color: black;
-    min-height: 230px;
-    width:auto ;
-    display: flex;
+  .background {
+    padding: 15px;
   }
 
   .adlib {
-    font-family: "Roboto", sans-serif;
-    font-family: "Tektur", cursive;
-    font-size: 22px;
-    margin-top: 50px;
-    color: rgb(100, 100, 100);
+    font-size: 18px;
+  }
+
+  .background2 {
+    padding: 15px;
   }
 }

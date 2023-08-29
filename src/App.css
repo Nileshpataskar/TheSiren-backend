@@ -199,7 +199,7 @@ body {
   font-size: 16px;
   font-weight: bold;
   color: #0f0f0f;
-  background-color: #f5eeee;
+  background-color: #846d6d;
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -207,7 +207,6 @@ body {
   transition: background-color 0.3s ease;
 }
 .backgroundForButton {
-  background-color: black;
   height: 100px;
   display: flex;
   align-items: center;
@@ -241,7 +240,50 @@ hr {
   color: black;
 }
 
-@media all and (max-width: 540px) {
+@media all and (min-width: 480px) and (max-width: 868px) { 
+  .article-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 80px;
+    margin-left: 80px;
+  }
+
+
+  
+.leftarticleContainer {
+  width: 100%;
+  margin-top: 20px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.rightarticleContainer {
+  margin-top: 20px;
+
+  width: 100%;
+}
+
+
+.flexing {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  max-height: 2000px;
+}
+.main{
+  min-height: 0;
+}
+.article-page{
+  margin: 0;
+}
+.load-more-button{
+ width: 97%; 
+}
+}
+
+/* //phone */
+@media all and (max-width: 479px) {
   .the {
     font-size: 18px;
     transform: rotate(270deg);
@@ -261,7 +303,7 @@ hr {
     border: 1px solid rgb(156, 156, 153);
     padding: 10px;
     display: flex;
-    width: 307px;
+    width: 300px;
     align-items: center;
     flex-direction: column;
     gap: 10px;
@@ -319,7 +361,7 @@ hr {
 
   .leftLogo {
     display: flex;
-    width: 210px;
+    width: 85%;
     justify-content: space-between;
   background-color: #f5eeee;
 
@@ -337,7 +379,7 @@ hr {
 .flexing {
   display: flex;
   flex-direction: column;
-  width: 363px;
+  width: 350px;
   gap: 5px;
   overflow-y: auto;
   scroll-behavior: smooth;
